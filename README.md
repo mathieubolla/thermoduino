@@ -26,3 +26,8 @@ Fabrication du circuit
 ======================
 
 Avec Fritzing, le fichier circuit.frz
+
+Mise à jour du firmware Arduino
+===============================
+
+Avec Arduino IDE, le fichier firmware.ino
