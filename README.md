@@ -21,3 +21,8 @@ Prérequis
 
 [IntelliJ IDEA 14.0 CE](https://www.jetbrains.com/idea/download/)
 
+
+Fabrication du circuit
+======================
+
+Avec Fritzing, le fichier circuit.frz
