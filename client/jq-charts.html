@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="./jqplot.meterGaugeRenderer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery.jqplot.min.css"/>
+</head>
+
+<body>
+
+<div id="chart_div"></div>
+
+<script>
+        var options = {
+           seriesDefaults: {
+               renderer: $.jqplot.MeterGaugeRenderer,
+               rendererOptions: {
+                   label: 'Température (°C)',
+                   labelPosition: 'bottom',
+                   labelHeightAdjust: -5,
+                   min: 14,
+                   max: 28,
+                   intervalOuterRadius: 120,
+                   ticks: [14, 19, 23, 28],
+                   intervals:[19, 23, 28],
+                   intervalColors:['#00FF00', '#FFFFFF', '#FF0000']
+               }
+           }
+       }
+
+        $(document).ready(function(){
+            s1 = [0];
+
+            $.jqplot('chart_div',[s1], options);
+
+            setInterval(function() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                        temp = Math.round(xhr.responseText * 100) / 100
+                        s1[0] = temp;
+                        options.seriesDefaults.rendererOptions.label = 'Température '+temp+'°C';
+                        $.jqplot('chart_div',[s1],options);
+                    }
+                }
+                xhr.open('GET', 'http://localhost:8080', true);
+                xhr.send(null);
+            }, 500);
+        });
+
+
+</script>
+</body>
+
+</html>

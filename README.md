@@ -36,3 +36,11 @@ Api Rest HTTP
 =============
 
 Avec IntelliJ IDEA, les fichiers pom.xml et src/main/java/Main.java
+
+Client HTML+JavaScript
+======================
+
+Avec un navigateur quelconque:
+
+- client/google-charts.html pour le mode online avec Google Charts
+- client/jq-charts.html pour le mode offline avec JQCharts

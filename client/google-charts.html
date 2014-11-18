@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["gauge"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Temp', 0]
+        ]);
+
+        var options = {
+          'animation.duration': 950,
+          min: 14, max: 28,
+          width: 400, height: 120,
+          redFrom: 23, redTo: 28,
+          greenFrom:14, greenTo: 19,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                data.setValue(0, 1, Math.round(xhr.responseText * 100) / 100);
+                chart.draw(data, options);
+            }
+          }
+        xhr.open('GET', 'http://localhost:8080', true);
+        xhr.send(null);
+        }, 500);
+      }
+    </script>
+</head>
+<body>
+<div id="chart_div" style="width: 400px; height: 120px;"></div>
+</body>
+</html>
