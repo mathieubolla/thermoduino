@@ -31,3 +31,8 @@ Mise à jour du firmware Arduino
 ===============================
 
 Avec Arduino IDE, le fichier firmware.ino
+
+Api Rest HTTP
+=============
+
+Avec IntelliJ IDEA, les fichiers pom.xml et src/main/java/Main.java
