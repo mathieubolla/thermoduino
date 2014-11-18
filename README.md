@@ -7,6 +7,8 @@ Source code for tmp36+arduino pro conferences
 Prérequis
 =========
 
+[FTDI VCP Driver](http://www.ftdichip.com/Drivers/VCP.htm)
+
 [Fritzing](http://fritzing.org/home/)
 
 [Arduino 1.5.8-beta](http://arduino.cc/en/Main/Software)
